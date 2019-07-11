@@ -1,5 +1,11 @@
 language: java
 jdk:
   - oraclejdk8
+services:
+  - postgresql
+addons:
+  postgresql: "9.3"
 before_install:
   - chmod +x mvnw
+  - psql -c "CREATE DATABASE ponto_inteligente;" -U postgres
+  - psql -c "ALTER USER postgres WITH PASSWORD 'ponto-inteligente';" -U postgres
