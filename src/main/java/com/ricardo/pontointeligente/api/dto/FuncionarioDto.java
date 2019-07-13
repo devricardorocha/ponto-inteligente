@@ -4,13 +4,11 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 
 import org.hibernate.validator.constraints.Length;
-import org.hibernate.validator.constraints.br.CNPJ;
-import org.hibernate.validator.constraints.br.CPF;
 
 import lombok.Data;
 
 @Data
-public class CadastroPFDto {
+public class FuncionarioDto {
 	
 	private Long id;
 
@@ -23,22 +21,13 @@ public class CadastroPFDto {
 	@Email(message = "Email inválido.")
 	private String email;
 	
-	@NotEmpty(message = "Senha não pode estar vazio.")
 	@Length(min = 8, max = 20, message = "A senha deve ter entre 8 e 20 caracteres.")
 	private String senha;
-	
-	@NotEmpty(message = "CPF não pode estar vazio.")
-	@CPF(message = "CPF inválido.")
-	private String cpf;
 	
 	private Double valorHora;
 	
 	private Integer qtdHorasTrabalhoDia;
 	
 	private Integer qtdHorasAlmoco;
-	
-	@NotEmpty(message = "CNPJ não pode estar vazio.")
-	@CNPJ(message = "CNPJ inválido.")
-	private String cnpj;
 
 }
