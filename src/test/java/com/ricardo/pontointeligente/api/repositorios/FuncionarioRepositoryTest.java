@@ -96,8 +96,8 @@ public class FuncionarioRepositoryTest {
 		funcionario.setEmpresa(empresa);
 		funcionario.setNome("Funcionario Teste");
 		funcionario.setPerfil(PerfilEnum.ROLE_USUARIO);
-		funcionario.setQtdHorasAlmoco(1f);
-		funcionario.setQtdHorasTrabalhoDia(8f);
+		funcionario.setQtdHorasAlmoco(1);
+		funcionario.setQtdHorasTrabalhoDia(8);
 		funcionario.setSenha(PasswordUtils.gerarBCrypt("12345678"));
 		return funcionario;
 	}

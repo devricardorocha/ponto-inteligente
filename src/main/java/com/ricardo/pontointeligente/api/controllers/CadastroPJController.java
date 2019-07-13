@@ -23,7 +23,7 @@ import com.ricardo.pontointeligente.api.servicos.EmpresaService;
 import com.ricardo.pontointeligente.api.servicos.FuncionarioService;
 import com.ricardo.pontointeligente.api.utils.PasswordUtils;
 
-@RestController("/api/cadastrar-pj")
+@RestController
 @CrossOrigin(origins = "*")
 public class CadastroPJController {
 
@@ -38,7 +38,7 @@ public class CadastroPJController {
 	@Autowired
 	private ModelMapper modelMapper;
 
-	@PostMapping
+	@PostMapping("/api/cadastrar-pj")
 	public ResponseEntity<Response<CadastroPJDto>> cadastrar(@Valid @RequestBody CadastroPJDto dto,
 			BindingResult result) {
 
