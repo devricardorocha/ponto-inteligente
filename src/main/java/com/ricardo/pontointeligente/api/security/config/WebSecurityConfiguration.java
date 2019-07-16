@@ -24,7 +24,7 @@ import com.ricardo.pontointeligente.api.security.filters.JwtAuthenticationTokenF
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
-	private static final String AUTH_PATH = "/auth/**";
+	private static final String API_PATH = "/api/**";
 
 	@Autowired
 	private JwtAuthenticationEntryPoint unauthorizedHandler;
@@ -50,8 +50,8 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity httpSecurity) throws Exception {
 
 		httpSecurity.csrf().disable().exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
-				.sessionManagement().and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-				.and().authorizeRequests().antMatchers(AUTH_PATH).permitAll().anyRequest().authenticated();
+				.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and().authorizeRequests()
+				.antMatchers(API_PATH).authenticated();
 
 		httpSecurity.addFilterBefore(authenticationTokenFilterBean(), UsernamePasswordAuthenticationFilter.class);
 
