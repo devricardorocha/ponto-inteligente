@@ -3,6 +3,7 @@ package com.ricardo.pontointeligente.api.servicos.impl;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import com.ricardo.pontointeligente.api.modelos.Empresa;
@@ -16,6 +17,7 @@ public class EmpresaServiceImpl implements EmpresaService {
 	private EmpresaRepository empresaRepository;
 
 	@Override
+	@Cacheable("empresaPorCNPJ")
 	public Optional<Empresa> buscaPorCNPJ(String cnpj) {
 		return Optional.ofNullable(empresaRepository.findByCnpj(cnpj));
 	}
